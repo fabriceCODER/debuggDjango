@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource List</title>
+</head>
+<body>
+    <h1>Resource List</h1>
+    
+    <a href="{% url 'resource_create' %}">Add New Resource</a>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Disaster</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resource in resources %}
+            <tr>
+                <td>{{ resource.name }}</td>
+                <td>{{ resource.type }}</td>
+                <td>{{ resource.disaster.name }}</td>
+                <td>{{ resource.quantity }}</td>
+                <td>
+                    <a href="{% url 'resource_update' resource.pk %}">Edit</a> | 
+                    <a href="{% url 'resource_delete' resource.pk %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

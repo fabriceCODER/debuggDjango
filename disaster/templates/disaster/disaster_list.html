@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster List</title>
+</head>
+<body>
+    <h1>Disaster List</h1>
+    
+    <a href="{% url 'disaster_create' %}">Add New Disaster</a>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disaster in disasters %}
+            <tr>
+                <td>{{ disaster.name }}</td>
+                <td>{{ disaster.description }}</td>
+                <td>{{ disaster.location }}</td>
+                <td>{{ disaster.date }}</td>
+                <td>
+                    <a href="{% url 'disaster_update' disaster.pk %}">Edit</a> | 
+                    <a href="{% url 'disaster_delete' disaster.pk %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

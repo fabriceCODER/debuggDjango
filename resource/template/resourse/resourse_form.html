@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Form</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Edit Resource,Add New Resource" }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'resource_list' %}">Back to Resource List</a>
+</body>
+</html>

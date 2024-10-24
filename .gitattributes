@@ -1,0 +1,7 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly define text files
+*.py text
+*.html text
+*.css text

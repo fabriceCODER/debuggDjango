@@ -1,0 +1,8 @@
+asgiref==3.8.1
+dataclasses==0.6
+Django==5.1.2
+dnspython==2.7.0
+mysqlclient==2.2.5
+pip==24.2
+sqlparse==0.5.1
+requests==2.26.0
